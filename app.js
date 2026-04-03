@@ -20,14 +20,7 @@ app.use(morgan('dev'));
 app.use('/api', apiLimiter);
 
 app.get('/', (req, res) => {
-  res.status(200).json({
-    success: true,
-    data: {
-      message: 'Finance Dashboard API is running',
-      health: '/health',
-      docs: '/api/docs'
-    }
-  });
+  res.redirect('/api/docs');
 });
 
 app.get('/health', (req, res) => {
