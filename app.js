@@ -19,6 +19,17 @@ app.use(express.json());
 app.use(morgan('dev'));
 app.use('/api', apiLimiter);
 
+app.get('/', (req, res) => {
+  res.status(200).json({
+    success: true,
+    data: {
+      message: 'Finance Dashboard API is running',
+      health: '/health',
+      docs: '/api/docs'
+    }
+  });
+});
+
 app.get('/health', (req, res) => {
   res.status(200).json({ success: true, data: { status: 'ok' } });
 });
